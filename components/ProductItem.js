@@ -5,7 +5,7 @@ function ProductItem({product}) {
    
   return (
     <div className='card'>
-      <Link href={`/product/${product.slug}`}>
+      <Link href={`/product/${product._id}`}>
             <a>
                 <img src={product.image} alt={product.name} className='rounded-shadow w-96' />
             </a>
