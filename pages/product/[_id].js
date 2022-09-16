@@ -4,9 +4,10 @@ import db from '../../utils/db';
 import Layout from '../../components/Layout';
 import Link from 'next/link';
 import Image from 'next/Image';
+
 function ProductScreen({product}) {
   const addToCartHandler = () => {
-    
+
   }
   console.log(product)
   return (
@@ -16,7 +17,7 @@ function ProductScreen({product}) {
         </div>
         <div className='grid md:grid-cols-4 md:gap-3'>
                 <div className='md:col-span-2'>
-                        <Image src={product.image} alt={product.name} width={640} height={800} Layout='responsive'></Image>
+                        <Image src={product.image} alt={product.name} width={640} height={800} layout='responsive'></Image>
                 </div>
                 <div>
                     <ul>
