@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Product from '../../models/Product';
 import db from '../../utils/db';
 import Layout from '../../components/Layout';
 import Link from 'next/link';
 import Image from 'next/Image';
+import { Store } from '../../utils/Store';
 
-function ProductScreen({product}) {
+export default function ProductScreen({product}) {
+        const { state, dispatch } = useContext(Store)
   const addToCartHandler = () => {
-
+        const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+        
+        dispatch({type: 'CART_ADD_ITEM', payload: { ...product, quantity}})
   }
   console.log(product)
   return (
@@ -69,5 +74,3 @@ export async function getServerSideProps(context) {
         }
     }
 }
-
-export default ProductScreen
