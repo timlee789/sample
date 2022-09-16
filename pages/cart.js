@@ -8,6 +8,9 @@ import Image from 'next/image';
 function CartScreen() {
     const {state, dispatch} = useContext(Store);
     const {cart: {cartItems}} = state;
+    const removeItemHandler = (item) => {
+        dispatch({type: 'CART_REMOVE_ITEM', payload: item})
+    }
   return (
     <Layout title='Shopping Cart'>
         <h1 className='mb-4 text-xl'>Shopping Cart</h1>
